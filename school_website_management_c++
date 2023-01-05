@@ -1,0 +1,167 @@
+#include <iostream>
+#include <string>
+#include <map>
+
+using namespace std;
+
+const string schoolName = "My School";
+
+// A struct to represent a student
+struct Student {
+string matricNumber;
+string password;
+string name;
+int grade;
+};
+
+// A map to store the students in the school
+map<string, Student> students;
+
+// A function to create a new student
+void createStudent(const string& matricNumber, const string& password) {
+Student s;
+s.matricNumber = matricNumber;
+s.password = password;
+cout << "Enter student name: ";
+cin >> s.name;
+cout << "Enter student grade: ";
+cin >> s.grade;
+students[matricNumber] = s;
+}
+
+// A function to login to the website
+Student login(const string& matricNumber, const string& password) {
+auto it = students.find(matricNumber);
+if (it == students.end()) {
+cout << "Invalid matric number" << endl;
+return Student();
+}
+if (it->second.password != password) {
+cout << "Invalid password" << endl;
+return Student();
+}
+return it->second;
+}//
+
+// Function prototypes
+void payment();
+void checkResults();
+void registerCourses();
+void viewResources();
+void viewCalendar();
+void otherServices();
+
+int main() {
+cout << "Welcome to the " << schoolName << " website" << std::endl;
+
+cout << "Enter matric number: ";
+string matricNumber;
+cin >> matricNumber;
+
+cout << "Enter password: ";
+string password;
+cin >> password;
+
+Student student = login("matricNumber", "password :");
+if (student.matricNumber.empty()) 
+{
+cout << "Welcome, " << student.name << "!" << endl;
+cout << "What would you like to do?" << endl;
+cout << "1. Make payment" << endl;
+cout << "2. Check result" << endl;
+cout << "3. Register for courses" << endl;
+cout << "4. View examination schedule" << endl;
+cout << "5. View class timetable" << endl;
+cout << "6. View session timetable" << endl;
+cout << "7. Access educational resources" << endl;
+cout << "8. View ticketing information" << endl;
+cout << "9. Vote in school elections" << endl;
+cout << "10. View school anthem" << endl;
+cout << "11. View national anthem" << endl;}
+
+int choice;
+cout << "Enter your choice: ";
+cin >> choice;
+// Call the appropriate function based on the user's selection
+switch (choice) 
+{
+case 1:
+payment();
+break;
+case 2:
+checkResults();
+break;
+case 3:
+registerCourses();
+break;
+case 4:
+// View examination schedule
+break;
+case 5:;
+ //view classtimetable();
+      break;
+    case 6:
+      otherServices();
+      break;
+    default:
+      cout << "Invalid selection" << endl;
+      break;
+  }
+  
+  return 0;
+}
+
+// Payment function
+void payment() {
+  // Prompt the user to enter their payment information
+  cout << "Please enter your payment information:" << endl;
+  string paymentMethod;
+  cout << "Payment method: ";
+  cin >> paymentMethod;
+  float amount;
+  cout << "Amount: $";
+  cin >> amount;
+  
+  // Process the payment
+  cout << "Processing payment..." << endl;
+  // ...
+  
+  cout << "Payment successful!" << endl;
+}
+
+// Results checking function
+void checkResults() {
+  // Prompt the user to enter their student ID
+  cout << "Please enter your student ID: ";
+  int studentID;
+  cin >> studentID;
+  
+  // Retrieve the user's results from the database
+  // ...
+  
+  // Display the user's results
+  cout << "Your results are as follows:" << endl;
+  // ...
+}
+
+// Course registration function
+void registerCourses() {
+  // Prompt the user to enter the courses they wish to register for
+  cout << "Please enter the courses you wish to register for (separated by spaces): ";
+  string courses;
+  getline(cin, courses);
+  
+  // Process the course registration
+  cout << "Processing course registration..." << endl;
+  // ...
+  
+  cout << "Course registration successful!" << endl;
+}
+
+// Educational resources function
+void viewResources() {
+  // Display a list of educational resources
+  cout << "Here are"<<endl;}
+  //...
+return 0;
+}
